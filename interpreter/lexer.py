@@ -14,7 +14,7 @@ class Lexer:
         self.code = code.split("\n")
         # Instance variable to store the stream of tokens generated
         # by the lexer
-        self.token_list = []
+        self.token_stream = []
 
     def lexer(self) -> List[Token]:
         # Initialising the line and the posn ptr so that these
@@ -31,8 +31,8 @@ class Lexer:
                     # will be neglected and considered as a comment (as specified
                     # in the rules in the __init__.py file)
                     token = Token(op_dict.get(token), line_ptr, posn_ptr)
-                    self.token_list.append(token)
+                    self.token_stream.append(token)
                 posn_ptr += 1
             line_ptr += 1
 
-        return self.token_list
+        return self.token_stream
