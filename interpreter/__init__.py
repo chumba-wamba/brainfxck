@@ -20,3 +20,25 @@
     , :: used to input a character.
     . :: used to output a character.
 """
+
+op_dict = {
+    ">": "RIGHT_SHIFT",
+    "<": "LEFT_SHIFT",
+    "+": "INC",
+    "-": "DEC",
+    "[": "LOOP_OPEN",
+    "]": "LOOP_CLOSE",
+    ",": "INPUT",
+    ".": "OUTPUT"
+}
+
+op_list = {
+    ">",
+    "<",
+    "+",
+    "-",
+    "[",
+    "]",
+    ",",
+    "."
+}
