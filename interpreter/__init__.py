@@ -1,6 +1,7 @@
 """
-- lexer.py
+- token.py
     - <class> Token :: serves as a structure to store metadata such as line number, character number, operator data, etc.
+- lexer.py
     - <class> Lexer :: generates tokens and populates the brainfxck storage tape with these tokens.
 - parser.py
     - <class> Parser :: responsbile for parsing and interpreting the code; generating error messages and other information.

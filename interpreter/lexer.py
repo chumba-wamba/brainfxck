@@ -7,10 +7,29 @@ class Lexer:
     """
         Responsible for generating a stream of tokens 
         from the input code which is then passed onto
-        the parser for futher evaluation (intepretation). 
+        the parser for futher evaluation (intepretation).
+
+            Attributes:
+                code : str
+                    the brainfxck code that has to be interpreted.
+
+            Methods:
+                lex()
+                    generates the token stream from the input code.
     """
 
     def __init__(self, code: str) -> None:
+        """
+            Constructor method to store code as an instance variable.
+
+            Parameters:
+                code : str
+                    the input code.
+
+            Returns:
+                None
+        """
+
         # Splitting input code into lines (via "\n" delimiter)
         self.code = code.split("\n")
         # Instance variable to store the stream of tokens generated
@@ -18,6 +37,16 @@ class Lexer:
         self.token_stream = []
 
     def lex(self) -> List[Token]:
+        """
+            Method to generate tokens from the input code.
+
+            Parameters:
+                None
+
+            Returns:
+                List[Token]
+        """
+
         # Initialising the line and the posn ptr so that these
         # variables can be utilised by the instances of the Token
         # class
