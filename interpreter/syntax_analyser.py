@@ -1,6 +1,7 @@
 from interpreter import op_dict, op_list
 from interpreter.token import Token
 from interpreter.lexer import Lexer
+from typing import List, Dict
 
 
 class SyntaxAnalyser:
@@ -15,7 +16,7 @@ class SyntaxAnalyser:
         message. 
     """
 
-    def __init__(self, token_stream: List[Token]) -> None:
+    def __init__(self, token_stream: List[Token]) -> Dict[str, int]:
         # A stack to check for the condition written
         # in the class docstring
         self.stack = []
@@ -23,5 +24,25 @@ class SyntaxAnalyser:
         # by the lexer.
         self.token_stream = token_stream
 
-    def syntax_analyser(self):
-        pass
+    def analyse(self):
+        for token in self.token_stream:
+            if token.op_name == op_dict.get("["):
+                self.stack.append(token)
+            elif token.op_name == op_dict.get("]"):
+                if len(self.stack) and self.stack[-1].op_name == op_dict.get("["):
+                    self.stack = self.stack[:-1]
+                else:
+                    return {
+                        "is_faulty": True,
+                        "faulty_token_list": [token],
+                    }
+
+        if len(self.stack):
+            return {
+                "is_faulty": True,
+                "faulty_token_list": self.stack
+            }
+        return {
+            "is_faulty": False,
+            "faulty_token_list": None
+        }

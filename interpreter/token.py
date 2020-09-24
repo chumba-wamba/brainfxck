@@ -19,3 +19,10 @@ class Token:
         self.op_name = op_name
         self.line_number = line_number
         self.posn_number = posn_number
+
+    def __repr__(self):
+        """
+            __repr__ method to print the contents of a token object
+            insted of the object id whenever the object is called. 
+        """
+        return f"Token(op_name: {self.op_name}, line_number: {self.line_number}, posn_number: {self.posn_number})"
