@@ -5,6 +5,8 @@ from interpreter.syntax_analyser import SyntaxAnalyser
 from typing import List
 
 
+# Note: Need to add docstrings and comments
+# for the Parser class.
 class Parser:
     """
         Responsible for consuming the stream of tokens generated
@@ -40,7 +42,57 @@ class Parser:
 
         self.token_stream = token_stream
         self.tape = [0 for i in range(tape_size)]
-        self.tape_ptr = 0
+        self.tape_size = tape_size
+        self.code_size = len(token_stream)
 
     def parse(self):
-        pass
+        tape_ptr = 0
+        code_ptr = 0
+        while(code_ptr < self.code_size):
+            if self.token_stream[code_ptr].op_name == op_dict["+"]:
+                self.tape[tape_ptr] += 1
+
+            elif self.token_stream[code_ptr].op_name == op_dict["-"]:
+                self.tape[tape_ptr] -= 1
+
+            elif self.token_stream[code_ptr].op_name == op_dict[">"]:
+                tape_ptr = (tape_ptr + 1) % self.tape_size
+
+            elif self.token_stream[code_ptr].op_name == op_dict["<"]:
+                tape_ptr = (tape_ptr - 1) % self.tape_size
+
+            elif self.token_stream[code_ptr].op_name == op_dict[","]:
+                pass
+
+            elif self.token_stream[code_ptr].op_name == op_dict["."]:
+                print(chr(self.tape[tape_ptr]), end="")
+
+            elif self.token_stream[code_ptr].op_name == op_dict["["]:
+                if self.tape[tape_ptr] == 0:
+                    brace_counter = 0
+                    code_ptr += 1
+                    while(code_ptr < self.code_size):
+                        if self.token_stream[code_ptr].op_name == op_dict["]"] and brace_counter == 0:
+
+                            break
+                        elif self.token_stream[code_ptr].op_name == op_dict["]"]:
+                            brace_counter -= 1
+                        elif self.token_stream[code_ptr].op_name == op_dict["["]:
+                            brace_counter += 1
+                        code_ptr += 1
+
+            elif self.token_stream[code_ptr].op_name == op_dict["]"]:
+                if self.tape[tape_ptr] != 0:
+                    brace_counter = 0
+                    code_ptr -= 1
+                    while(code_ptr >= 0):
+                        if self.token_stream[code_ptr].op_name == op_dict["["] and brace_counter == 0:
+                            break
+                        elif self.token_stream[code_ptr].op_name == op_dict["["]:
+                            brace_counter -= 1
+                        elif self.token_stream[code_ptr].op_name == op_dict["]"]:
+                            brace_counter += 1
+                        code_ptr -= 1
+
+            code_ptr += 1
+        print("")

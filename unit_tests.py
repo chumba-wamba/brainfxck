@@ -4,7 +4,9 @@ from interpreter.syntax_analyser import SyntaxAnalyser
 from interpreter.parser import Parser
 
 if __name__ == "__main__":
-    code = "+++++--[[[]c+++++ //Incrementing cell 1 from 0 to 10"
+    code = "+++++--[[[]c+++++ //Incrementing cell 1 from 0 to 10 \n +++["
+    code = "+++++++++++++++++++++++++++++++++.>++++++++++++++++++++++++++++++++++.>+++++++++++++++++++++++++++++++++++++."
+    code = "++[>+++++++++++++++++++++++++++++++++.<-]"
 
     lex = Lexer(code)
     token_stream = lex.lex()
@@ -15,3 +17,6 @@ if __name__ == "__main__":
     fault_dict = syn_anal.analyse()
 
     print(fault_dict)
+
+    parser = Parser(token_stream=token_stream)
+    parser.parse()
