@@ -51,8 +51,8 @@ class Lexer:
         # variables can be utilised by the instances of the Token
         # class
         line_ptr = 1
-        posn_ptr = 1
         for line in self.code:
+            posn_ptr = 1
             for char in line:
                 if char in op_list:
                     # Generating an object of the Token class for the current
