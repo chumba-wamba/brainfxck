@@ -5,6 +5,7 @@ fastapi==0.61.1
 Flask==1.1.2
 h11==0.9.0
 httptools==0.1.1
+-e git+git@github.com:chumba-wamba/brainfxck.git@caf429e38d7ee85f7e349936b385daf3bbc67bf2#egg=interpreter
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
