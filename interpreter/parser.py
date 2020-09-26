@@ -52,6 +52,16 @@ class Parser:
         self.output_string = ""
 
     def parse(self):
+        """
+            Evalates/interprets the token stream.
+
+            Parameters:
+                None
+
+            Returns:
+                None
+        """
+
         tape_ptr = 0
         code_ptr = 0
         while(code_ptr < self.code_size):
@@ -120,4 +130,3 @@ class Parser:
                         code_ptr -= 1
 
             code_ptr += 1
-        print("")

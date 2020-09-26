@@ -5,7 +5,20 @@ from interpreter.syntax_analyser import SyntaxAnalyser
 from interpreter.parser import Parser
 
 
-def interpret(file):
+def interpret(file: str, tape_size=1000) -> str:
+    """
+            Helper function which combines the process of lexing,
+            syntax analysis, and parsing/evaluation to return either
+            the finaly output or an error message.
+
+            Parameters:
+                file : str
+                    the location of the .bf file to be evaluated. 
+
+            Returns:
+                str
+        """
+
     if file.split(".")[-1] != "bf":
         return("File extension is not of type brainfxck")
 
@@ -24,7 +37,7 @@ def interpret(file):
                 f"Error for {token.op_name} at :: line : {token.line_number} position : {token.posn_number}\n")
         return op_string
 
-    parser = Parser(token_stream)
+    parser = Parser(token_stream, tape_size)
     parser.parse()
     output = parser.output_string
     return output
