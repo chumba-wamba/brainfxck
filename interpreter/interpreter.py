@@ -5,7 +5,7 @@ from interpreter.syntax_analyser import SyntaxAnalyser
 from interpreter.parser import Parser
 
 
-def interpret(file: str, tape_size=1000) -> str:
+def evaluate(file: str, tape_size=1000) -> str:
     """
             Helper function which combines the process of lexing,
             syntax analysis, and parsing/evaluation to return either

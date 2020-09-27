@@ -1,7 +1,7 @@
 README.md
 setup.py
 interpreter/__init__.py
-interpreter/getch.py
+interpreter/interpreter.py
 interpreter/lexer.py
 interpreter/parser.py
 interpreter/syntax_analyser.py

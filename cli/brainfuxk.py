@@ -1,9 +1,9 @@
 import typer
-from interpreter.interpreter import interpret
+from interpreter.interpreter import evaluate
 
 
 def main(file: str):
-    output = interpret(file)
+    output = evaluate(file)
     typer.echo(output)
 
 
