@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Path, Query, Body
 from typing import Optional, List, Dict, Tuple
 from interpreter.interpreter import evaluate
-
+from API.req_models import *
 
 app = FastAPI()
 
@@ -16,5 +16,10 @@ def root():
 
 
 @app.post("/evaluate")
-def evaluate():
-    pass
+def eval(code_in: CodeIn):
+    output = evaluate(code_in.file)
+    return {
+        "success": True,
+        "message": "Code successfully executed!",
+        "data": CodeOut(output=output)
+    }
