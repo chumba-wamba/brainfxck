@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 
 class CodeIn(BaseModel):
-    file: str = Field(...,
+    code: str = Field(...,
                       description="The brainfxck code that has to be evaluated")
 
 

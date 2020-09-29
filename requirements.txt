@@ -1,11 +1,14 @@
 autopep8==1.5.4
+certifi==2020.6.20
+chardet==3.0.4
 click==7.1.2
 colorama==0.4.3
 fastapi==0.61.1
 Flask==1.1.2
 h11==0.9.0
 httptools==0.1.1
--e git+git@github.com:chumba-wamba/brainfxck.git@caf429e38d7ee85f7e349936b385daf3bbc67bf2#egg=interpreter
+idna==2.10
+-e git+git@github.com:chumba-wamba/brainfxck.git@e94260b455b6eac1f50bbb2c9eed7692ae71bd38#egg=interpreter
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
@@ -13,10 +16,12 @@ mongoengine==0.20.0
 pycodestyle==2.6.0
 pydantic==1.6.1
 pymongo==3.11.0
+requests==2.24.0
 shellingham==1.3.2
 starlette==0.13.6
 toml==0.10.1
 typer==0.3.2
+urllib3==1.25.10
 uvicorn==0.11.8
 uvloop==0.14.0
 websockets==8.1

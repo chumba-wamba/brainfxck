@@ -49,7 +49,7 @@ def evaluate(code: str, tape_size: int = 1000) -> str:
         for token in error_dic["faulty_token_list"]:
             op_string += (
                 f"Error for {token.op_name} at :: line : {token.line_number} position : {token.posn_number}\n")
-        raise SyntaxError(op_string)
+        return op_string
 
     parser = Parser(token_stream, tape_size)
     parser.parse()

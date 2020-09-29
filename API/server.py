@@ -17,7 +17,7 @@ def root():
 
 @app.post("/evaluate")
 def eval(code_in: CodeIn):
-    output = evaluate(code_in.file)
+    output = evaluate(code_in.code)
     return {
         "success": True,
         "message": "Code successfully executed!",
