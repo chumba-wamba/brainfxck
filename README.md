@@ -71,7 +71,7 @@ Follow the steps to run the web-app on your local machine:
    ```
 
    2. Open a browser
-   3. Visit @http://localhost:8000\docs or @http://localhost:8000\redoc
+   3. Visit @http://localhost:8000/docs or @http://localhost:8000/redoc
 
 5. Recommened to user the api_client for python (solves JSON parsing issues)
 6. To use the CLI (Optional)
