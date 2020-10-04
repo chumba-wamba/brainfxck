@@ -1,5 +1,6 @@
-bounds_left: https://github.com/saulpw/brainfuck/tree/master/tests
 hello_world: https://github.com/saulpw/brainfuck/tree/master/tests
 quine: https://github.com/saulpw/brainfuck/tree/master/tests
 squares: https://github.com/saulpw/brainfuck/tree/master/tests
 fib: http://esoteric.sange.fi/brainfuck/bf-source/prog/fibonacci.txt
+inf_bif: http://www.hevanet.com/cristofd/brainfuck/
+A: https://gist.github.com/d4br4c0/3987957

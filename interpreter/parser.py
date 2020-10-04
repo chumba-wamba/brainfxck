@@ -87,14 +87,14 @@ class Parser:
             # Handles user input; takes only the first character
             # of whatever the user inputs
             elif self.token_stream[code_ptr].op_name == op_dict[","]:
-                inp = input()
+                inp = input("Input: ")
                 self.tape[tape_ptr] = ord(inp[0])
 
             # Handles the output functionality by adding the chr
             # of the ascii at the memory block the tape_ptr is at
             # to the output_string
             elif self.token_stream[code_ptr].op_name == op_dict["."]:
-                # print(chr(self.tape[tape_ptr]), end="")
+                print(chr(self.tape[tape_ptr]), end="")
                 self.output_string += chr(self.tape[tape_ptr])
 
             # If the current position of the tape_ptr has zero, then
@@ -130,3 +130,4 @@ class Parser:
                         code_ptr -= 1
 
             code_ptr += 1
+        print()
